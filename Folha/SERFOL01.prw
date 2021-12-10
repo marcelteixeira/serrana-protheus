@@ -9,6 +9,12 @@
 (examples)
 @see (links_or_references)
 /*/
+/* --------------------------------------------------------------------------------------
+| Data     |  Autor       | Motivo                                                      |
++----------+--------------+-------------------------------------------------------------+
+| 07/12/21 | Givanildo    | Na alteração - Não alterar os campos da SA2 - já alterados  |
++----------+--------------+-------------------------------------------------------------+
+*/
 Class SERFOL01 
 
 	Data cNome
@@ -349,9 +355,6 @@ Method Supplier() class SERFOL01
 			{"A2_NREDUZ"  ,::cNome         ,nil},;
 			{"A2_END"     ,::cEnderec      ,nil},;
 			{"A2_EST"     ,::cUf           ,nil},;
-			{"A2_NR_END"  ,"SN"            ,nil},;
-			{"A2_TIPO" 	  ,"F"             ,nil},;
-			{"A2_FILIAL"  ,xFilial("SA2")  ,nil},;
 			{"A2_COD_MUN" ,::cCodMun       ,nil},;
 			{"A2_BAIRRO"  ,::cBairro       ,nil},;
 			{"A2_COMPLEM" ,::cComplem      ,nil},;
@@ -359,13 +362,17 @@ Method Supplier() class SERFOL01
 			{"A2_CGC" 	  ,::cCGC          ,nil},;
 			{"A2_EMAIL"   ,::cEmail        ,nil},;
 			{"A2_MUN" 	  ,::cMunip        ,nil},;
-			{"A2_RECINSS" ,"S"		       ,nil},;
-			{"A2_CALCIRF" ,"1"		       ,nil},;
-			{"A2_RECSEST" ,"1"		       ,nil},;
-			{"A2_COND"    ,"001"	       ,nil},;
-			{"A2_MINIRF"  ,"1"		       ,nil},;		
 			{"A2_MSBLQL"   ,IIF(::lBlocked,"1","2"),nil},;			
 			{"A2_RNTRC"   ,::cAntt         ,nil}}
+
+			/*{"A2_NR_END"  ,"SN"          ,nil},; */ //GVA [07/12/2021]
+			/*{"A2_TIPO" 	,"F"           ,nil},; */ //GVA [07/12/2021]
+			/*{"A2_FILIAL"  ,xFilial("SA2"),nil},; */ //GVA [07/12/2021]
+			/*{"A2_RECINSS" ,"S"		   ,nil},; */ //GVA [07/12/2021]
+			/*{"A2_CALCIRF" ,"1"		   ,nil},; */ //GVA [07/12/2021]
+			/*{"A2_RECSEST" ,"1"		   ,nil},; */ //GVA [07/12/2021]
+			/*{"A2_COND"    ,"001"	       ,nil},; */ //GVA [07/12/2021]
+			/*{"A2_MINIRF"  ,"1"		   ,nil},; */ //GVA [07/12/2021]
 
 			MSExecAuto({|x,y| Mata020(x,y)},aVetor,4)   
 

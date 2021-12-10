@@ -19,6 +19,13 @@
 
 @type function
 /*/
+
+/* ------------------------------------------------------------------------------
+| Data     |  Autor       | Motivo                                               |
++----------+--------------+------------------------------------------------------+
+| 07/12/21 | Givanildo    | Correção dos parametros passados na funçao MaIntBxCP |
++----------+--------------+------------------------------------------------------+
+*/
 user function CNT121BT()
 
 	Local aSerrana := {}
@@ -271,8 +278,8 @@ User Function EstFinMED()
 		aRetorno:= aClone(aFor[i][2][3])
 
 		If Len(aRecNDF) > 0
-
-			FWMsgRun(, {|| MaIntBxCP(2,aRecSE2,{0,0,0},aRecNDF,Nil,Nil,Nil, aRetorno) }	, "Processando", "Estornando as Compensações.")
+		  //FWMsgRun(, {|| MaIntBxCP(2,aRecSE2  ,{0,0,0},aRecNDF,Nil,Nil                                         ,Nil, aRetorno) }	, "Processando", "Estornando as Compensações.")
+			FWMsgRun(, {|| MaIntBxCP(2,aRecSE2  ,{0,0,0},aRecNDF,Nil,{.F.,.F.,.F.,.F.,.F.,.F.}                   ,Nil, aRetorno) }	, "Processando", "Estornando as Compensações.") // GVA [07/12/2021]
 
 			if !lRet
 				cMsg  := "Não foi possível descompensar os titulos para esta medição."

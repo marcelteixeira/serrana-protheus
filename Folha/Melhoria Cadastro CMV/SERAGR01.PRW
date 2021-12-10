@@ -11,6 +11,12 @@ DESC:   Agrupamento de CMV
 
 AUTOR:  Maycon Anohleti Bianchine - Totvs Leste
 */
+/* ------------------------------------------------------------------------------
+| Data     |  Autor       | Motivo                                               |
++----------+--------------+------------------------------------------------------+
+| 07/12/21 | Givanildo    | Permitir que o usuário informe a data de vencimento  |
++----------+--------------+------------------------------------------------------+
+*/
 
 User Function SERAGR01(nOpcao)
 
@@ -26,6 +32,7 @@ User Function SERAGR01(nOpcao)
 	Local cCodLoj := SZ1->Z1_LOJA
 	Local cCodVei := SZ1->Z1_CODVEI
 	Local cCodDesp:= SZ1->Z1_CODDESP
+	Local dDtVenci:= dDatabase + 30 //GVA [07/12/2021] 
 
 	If nOpcao == 3 //Inclusão de um Agrupamento
 
@@ -35,6 +42,7 @@ User Function SERAGR01(nOpcao)
 		aAdd(aParBox, {1, "Loja"        , cCodLoj ,"",   "",   "",".T.", 02,.T.})
 		aAdd(aParBox, {1, "Veiculo"     , cCodVei ,"",   "","DA3",".T.", 80,.F.})
 		aAdd(aParBox, {1, "Despesa"     , cCodDesp,"",   "","DT7",".T.", 80,.T.})
+		aAdd(aParBox, {1, "Vencimento"  , dDtVenci,"",   "",""   ,".T.", 80,.T.}) //GVA [07/12/2021] 
 
 		If ParamBox(aParBox, "Agrupamento de CMV", aRetBox)
 
@@ -267,7 +275,7 @@ Static Function GeraAgr(aCMV)
 		SZ1->Z1_NUM		:= cZ1_NUM
 		SZ1->Z1_PARCELA	:= "0001"
 		SZ1->Z1_EMISSAO	:= dDataBase
-		SZ1->Z1_VENCTO	:= dDataBase + 30
+		SZ1->Z1_VENCTO	:= MV_PAR07 //GVA [07/12/2021]   //dDataBase + 30
 		SZ1->Z1_FORNECE	:= cNewCodFor
 		SZ1->Z1_LOJA	:= cNewLojFor
 		SZ1->Z1_VALOR	:= nNewSaldo

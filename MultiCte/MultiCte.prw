@@ -59,9 +59,11 @@ method new() class MultiCte
 	::cMensagem		:= ""
 	::lEventos		:= .F.
 	oWS:cSSLCACertFile := "\MULTICTE.PEM"
+	
 	oWS:ParseURL( ::cUrlWS )
 
 	::oWDSL := oWS
+	
 
 return oWS
 
